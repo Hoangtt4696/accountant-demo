@@ -9,14 +9,16 @@ import NotFound from 'src/pages/NotFound';
 import ProductList from 'src/pages/ProductList';
 import Register from 'src/pages/Register';
 import Settings from 'src/pages/Settings';
+import CreateOrder from 'src/pages/CreateOrder';
 
 const routes = [
   {
     path: 'app',
     element: <DashboardLayout />,
     children: [
+      { path: 'orders', element: <CustomerList /> },
+      { path: 'create-order', element: <CreateOrder /> },
       { path: 'account', element: <Account /> },
-      { path: 'customers', element: <CustomerList /> },
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'products', element: <ProductList /> },
       { path: 'settings', element: <Settings /> },

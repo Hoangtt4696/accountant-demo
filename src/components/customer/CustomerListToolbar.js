@@ -5,13 +5,13 @@ import {
   CardContent,
   TextField,
   InputAdornment,
-  SvgIcon
+  SvgIcon,
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
 const CustomerListToolbar = (props) => (
   <Box {...props}>
-    <Box
+    {/* <Box
       sx={{
         display: 'flex',
         justifyContent: 'flex-end'
@@ -21,37 +21,42 @@ const CustomerListToolbar = (props) => (
         Import
       </Button>
       <Button sx={{ mx: 1 }}>
-        Export
+        Xuất đơn hàng
       </Button>
-      <Button
+      <Link
         color="primary"
         variant="contained"
+        to="/create-order"
       >
-        Add customer
-      </Button>
-    </Box>
+        Tạo đơn hàng
+      </Link>
+    </Box> */}
     <Box sx={{ mt: 3 }}>
       <Card>
-        <CardContent>
-          <Box sx={{ maxWidth: 500 }}>
-            <TextField
-              fullWidth
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SvgIcon
-                      fontSize="small"
-                      color="action"
-                    >
-                      <SearchIcon />
-                    </SvgIcon>
-                  </InputAdornment>
-                )
-              }}
-              placeholder="Search customer"
-              variant="outlined"
-            />
-          </Box>
+        <CardContent
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItem: 'center'
+          }}
+        >
+          <TextField
+            style={{ maxWidth: 300 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SvgIcon fontSize="small" color="action">
+                    <SearchIcon />
+                  </SvgIcon>
+                </InputAdornment>
+              )
+            }}
+            placeholder="Tìm theo mã đơn hàng"
+            variant="outlined"
+          />
+          <Button color="primary" href="/app/create-order" variant="contained">
+            Tạo đơn hàng
+          </Button>
         </CardContent>
       </Card>
     </Box>

@@ -12,27 +12,27 @@ import {
 
 const states = [
   {
-    value: 'alabama',
-    label: 'Alabama'
+    value: 'hcm',
+    label: 'Hồ Chính Minh'
   },
   {
     value: 'new-york',
-    label: 'New York'
+    label: 'Hà Nội'
   },
   {
     value: 'san-francisco',
-    label: 'San Francisco'
+    label: 'Ninh Thuận'
   }
 ];
 
 const AccountProfileDetails = (props) => {
   const [values, setValues] = useState({
-    firstName: 'Katarina',
-    lastName: 'Smith',
-    email: 'demo@devias.io',
+    firstName: 'Nguyễn',
+    lastName: 'Hải Châu',
+    email: 'haichaunguyen@gmail.com',
     phone: '',
-    state: 'Alabama',
-    country: 'USA'
+    state: 'hcm',
+    country: 'Việt Name'
   });
 
   const handleChange = (event) => {
@@ -43,31 +43,17 @@ const AccountProfileDetails = (props) => {
   };
 
   return (
-    <form
-      autoComplete="off"
-      noValidate
-      {...props}
-    >
+    <form autoComplete="off" noValidate {...props}>
       <Card>
-        <CardHeader
-          subheader="The information can be edited"
-          title="Profile"
-        />
+        <CardHeader subheader="Thông tin có thể chỉnh sửa" title="Hồ sơ" />
         <Divider />
         <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                helperText="Please specify the first name"
-                label="First name"
+                helperText="Họ"
+                label="Họ"
                 name="firstName"
                 onChange={handleChange}
                 required
@@ -75,14 +61,10 @@ const AccountProfileDetails = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Last name"
+                label="Tên"
                 name="lastName"
                 onChange={handleChange}
                 required
@@ -90,11 +72,7 @@ const AccountProfileDetails = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Email Address"
@@ -105,14 +83,10 @@ const AccountProfileDetails = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Phone Number"
+                label="Số điện thoại"
                 name="phone"
                 onChange={handleChange}
                 type="number"
@@ -120,14 +94,10 @@ const AccountProfileDetails = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Country"
+                label="Quốc tịch"
                 name="country"
                 onChange={handleChange}
                 required
@@ -135,14 +105,10 @@ const AccountProfileDetails = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Select State"
+                label="Thành phố"
                 name="state"
                 onChange={handleChange}
                 required
@@ -152,10 +118,7 @@ const AccountProfileDetails = (props) => {
                 variant="outlined"
               >
                 {states.map((option) => (
-                  <option
-                    key={option.value}
-                    value={option.value}
-                  >
+                  <option key={option.value} value={option.value}>
                     {option.label}
                   </option>
                 ))}
@@ -171,11 +134,8 @@ const AccountProfileDetails = (props) => {
             p: 2
           }}
         >
-          <Button
-            color="primary"
-            variant="contained"
-          >
-            Save details
+          <Button color="primary" variant="contained">
+            Lưu
           </Button>
         </Box>
       </Card>
