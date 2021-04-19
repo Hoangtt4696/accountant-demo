@@ -87,8 +87,11 @@ const CustomerListResults = ({ customers, ...rest }) => {
                   />
                 </TableCell>
                 <TableCell>Mã đơn hàng</TableCell>
+                <TableCell>Nha khoa - Nha sĩ</TableCell>
                 <TableCell>Tên khách hàng</TableCell>
-                <TableCell>Trạng thái đơn hàng</TableCell>
+                <TableCell>Ngày nhận</TableCell>
+                <TableCell>Ngày giao</TableCell>
+                <TableCell style={{ textAlign: 'center' }}>Trạng thái đơn hàng</TableCell>
                 <TableCell>Ngày tạo</TableCell>
                 <TableCell>Tổng hóa đơn</TableCell>
               </TableRow>
@@ -108,6 +111,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     />
                   </TableCell>
                   <TableCell>{customer.id}</TableCell>
+                  <TableCell>{`${customer.dentistry} - ${customer.dentist}`}</TableCell>
                   <TableCell>
                     <Box
                       sx={{
@@ -123,7 +127,9 @@ const CustomerListResults = ({ customers, ...rest }) => {
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>Đang xử lý</TableCell>
+                  <TableCell>{customer.receiveDate}</TableCell>
+                  <TableCell>{customer.releaseDate}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}><span style={{ color: '#24c324', fontWeight: 'bold' }}>Hoàn tất</span></TableCell>
                   <TableCell>
                     {moment(customer.createdAt).format('DD/MM/YYYY')}
                   </TableCell>

@@ -19,7 +19,7 @@ const Register = () => {
   return (
     <>
       <Helmet>
-        <title>Register | Material Kit</title>
+        <title>Đăng ký</title>
       </Helmet>
       <Box
         sx={{
@@ -67,21 +67,14 @@ const Register = () => {
                     color="textPrimary"
                     variant="h2"
                   >
-                    Create new account
-                  </Typography>
-                  <Typography
-                    color="textSecondary"
-                    gutterBottom
-                    variant="body2"
-                  >
-                    Use your email to create new account
+                    Tạo tài khoản
                   </Typography>
                 </Box>
                 <TextField
                   error={Boolean(touched.firstName && errors.firstName)}
                   fullWidth
                   helperText={touched.firstName && errors.firstName}
-                  label="First name"
+                  label="Họ"
                   margin="normal"
                   name="firstName"
                   onBlur={handleBlur}
@@ -93,7 +86,7 @@ const Register = () => {
                   error={Boolean(touched.lastName && errors.lastName)}
                   fullWidth
                   helperText={touched.lastName && errors.lastName}
-                  label="Last name"
+                  label="Tên"
                   margin="normal"
                   name="lastName"
                   onBlur={handleBlur}
@@ -105,7 +98,7 @@ const Register = () => {
                   error={Boolean(touched.email && errors.email)}
                   fullWidth
                   helperText={touched.email && errors.email}
-                  label="Email Address"
+                  label="Email"
                   margin="normal"
                   name="email"
                   onBlur={handleBlur}
@@ -118,7 +111,7 @@ const Register = () => {
                   error={Boolean(touched.password && errors.password)}
                   fullWidth
                   helperText={touched.password && errors.password}
-                  label="Password"
+                  label="Mật khẩu"
                   margin="normal"
                   name="password"
                   onBlur={handleBlur}
@@ -143,7 +136,7 @@ const Register = () => {
                     color="textSecondary"
                     variant="body1"
                   >
-                    I have read the
+                    Đồng ý các
                     {' '}
                     <Link
                       color="primary"
@@ -152,7 +145,7 @@ const Register = () => {
                       underline="always"
                       variant="h6"
                     >
-                      Terms and Conditions
+                      điều khoản và điều kiện
                     </Link>
                   </Typography>
                 </Box>
@@ -170,21 +163,21 @@ const Register = () => {
                     type="submit"
                     variant="contained"
                   >
-                    Sign up now
+                    Đăng ký
                   </Button>
                 </Box>
                 <Typography
                   color="textSecondary"
                   variant="body1"
                 >
-                  Have an account?
+                  Đã có tài khoản?
                   {' '}
                   <Link
                     component={RouterLink}
                     to="/login"
                     variant="h6"
                   >
-                    Sign in
+                    Đăng nhâp
                   </Link>
                 </Typography>
               </form>
