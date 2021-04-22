@@ -1,12 +1,12 @@
 import {
   Avatar,
-  Box,
+  // Box,
   Card,
   CardContent,
   Grid,
   Typography
 } from '@material-ui/core';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+// import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import MoneyIcon from '@material-ui/icons/Money';
 import { red } from '@material-ui/core/colors';
 
@@ -27,13 +27,13 @@ const Budget = (props) => (
             gutterBottom
             variant="h6"
           >
-            BUDGET
+            Tổng đơn hàng
           </Typography>
           <Typography
             color="textPrimary"
             variant="h3"
           >
-            $24,000
+            50
           </Typography>
         </Grid>
         <Grid item>
@@ -48,7 +48,7 @@ const Budget = (props) => (
           </Avatar>
         </Grid>
       </Grid>
-      <Box
+      {/* <Box
         sx={{
           pt: 2,
           display: 'flex',
@@ -71,7 +71,7 @@ const Budget = (props) => (
         >
           Since last month
         </Typography>
-      </Box>
+      </Box> */}
     </CardContent>
   </Card>
 );

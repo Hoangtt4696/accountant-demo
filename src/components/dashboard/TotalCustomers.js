@@ -1,13 +1,13 @@
 import {
   Avatar,
-  Box,
+  // Box,
   Card,
   CardContent,
   Grid,
   Typography
 } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+// import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PeopleIcon from '@material-ui/icons/PeopleOutlined';
 
 const TotalCustomers = (props) => (
@@ -24,13 +24,13 @@ const TotalCustomers = (props) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL CUSTOMERS
+            Đơn hàng đang giao
           </Typography>
           <Typography
             color="textPrimary"
             variant="h3"
           >
-            1,600
+            15
           </Typography>
         </Grid>
         <Grid item>
@@ -45,7 +45,7 @@ const TotalCustomers = (props) => (
           </Avatar>
         </Grid>
       </Grid>
-      <Box
+      {/* <Box
         sx={{
           alignItems: 'center',
           display: 'flex',
@@ -68,7 +68,7 @@ const TotalCustomers = (props) => (
         >
           Since last month
         </Typography>
-      </Box>
+      </Box> */}
     </CardContent>
   </Card>
 );
