@@ -54,7 +54,7 @@ const CustomerListToolbar = (props) => (
             placeholder="Tìm theo mã đơn hàng"
             variant="outlined"
           />
-          <Button color="primary" href="/app/create-order" variant="contained">
+          <Button color="primary" href="/app/create-order-2" variant="contained">
             Tạo đơn hàng
           </Button>
         </CardContent>

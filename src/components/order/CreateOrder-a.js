@@ -16,87 +16,105 @@ const AccountProfileDetails = (props) => (
       <Divider />
       <CardContent>
         <Grid container spacing={3}>
-          <Grid item md={6} xs={12}>
+          <Grid item md={3} xs={6}>
             <TextField
               fullWidth
-              label="Tên khách hàng"
+              label="Mã số"
               name="customerName"
               required
+              size="small"
               variant="outlined"
             />
+          </Grid>
+          <Grid item md={3} xs={6}>
+            <TextField
+              fullWidth
+              label="Ngày nhận"
+              name="customerName"
+              variant="outlined"
+              size="small"
+            />
+          </Grid>
+          <Grid item md={6} xs={12}>
+            &nbsp;
           </Grid>
           <Grid item md={6} xs={12}>
             <TextField
               fullWidth
-              label="Số điện thoại"
-              required
+              label="Nha khoa - nha sĩ"
               name="phone"
               type="number"
               variant="outlined"
+              size="small"
             />
           </Grid>
           <Grid item md={6} xs={12}>
             <TextField
               fullWidth
-              label="Email"
+              label="Tên bệnh nhân"
               name="email"
-              required
               variant="outlined"
+              size="small"
             />
           </Grid>
           <Grid item md={6} xs={12}>
             <TextField
               fullWidth
-              label="Quốc tịch"
+              label="Diễn giải chỉ định 1"
               name="country"
-              required
               variant="outlined"
-            />
-          </Grid>
-          <Grid item md={12} xs={12}>
-            <TextField
-              fullWidth
-              label="Địa chỉ"
-              name="address"
-              required
-              variant="outlined"
+              size="small"
             />
           </Grid>
           <Grid item md={6} xs={12}>
             <TextField
               fullWidth
-              label="Tên sản phẩm"
+              label="Diễn giải chỉ định 2"
               name="address"
-              required
               variant="outlined"
+              size="small"
             />
           </Grid>
-          <Grid item md={3} xs={6}>
-            <TextField
-              fullWidth
-              label="Đơn giá"
-              name="address"
-              required
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item md={3} xs={6}>
+          <Grid item md={6} xs={12}>
             <TextField
               fullWidth
               label="Số lượng"
               name="address"
-              required
               variant="outlined"
+              size="small"
             />
           </Grid>
-          <Grid item md={12} xs={12}>
+          <Grid item md={6} xs={12}>
+            <TextField
+              fullWidth
+              label="Màu"
+              name="address"
+              variant="outlined"
+              size="small"
+            />
+          </Grid>
+          <Grid item md={6} xs={12}>
             <TextField
               fullWidth
               label="Ghi chú"
               name="address"
-              required
               variant="outlined"
+              size="small"
             />
+          </Grid>
+          <Grid item md={3} xs={6}>
+            <Button
+              variant="contained"
+              component="label"
+              fullWidth
+              name="address"
+              type="file"
+              id="files"
+              // size="large"
+            >
+              Tải file
+              <input type="file" hidden />
+            </Button>
           </Grid>
         </Grid>
       </CardContent>

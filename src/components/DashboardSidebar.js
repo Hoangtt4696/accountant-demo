@@ -36,9 +36,24 @@ const items = [
   //   title: 'Dashboard'
   // },
   {
-    href: '/app/orders',
+    href: '/app/orders-1',
     icon: ShoppingBagIcon,
-    title: 'Đơn Hàng'
+    title: 'Đơn Hàng 1'
+  },
+  {
+    href: '/app/orders-2',
+    icon: ShoppingBagIcon,
+    title: 'Đơn Hàng 2'
+  },
+  {
+    href: '/app/orders-3',
+    icon: ShoppingBagIcon,
+    title: 'Đơn Hàng 3'
+  },
+  {
+    href: '/app/orders-4',
+    icon: ShoppingBagIcon,
+    title: 'Đơn Hàng 4'
   },
   // {
   //   href: '/app/products',

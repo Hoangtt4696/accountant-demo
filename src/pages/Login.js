@@ -35,7 +35,10 @@ const Login = () => {
               password: 'Password123'
             }}
             validationSchema={Yup.object().shape({
-              email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
+              email: Yup.string()
+                .email('Must be a valid email')
+                .max(255)
+                .required('Email is required'),
               password: Yup.string().max(255).required('Password is required')
             })}
             onSubmit={() => {
@@ -53,10 +56,7 @@ const Login = () => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <Box sx={{ mb: 3 }}>
-                  <Typography
-                    color="textPrimary"
-                    variant="h2"
-                  >
+                  <Typography color="textPrimary" variant="h2">
                     Đăng nhâp
                   </Typography>
                 </Box>
@@ -98,17 +98,10 @@ const Login = () => {
                     Đăng nhập
                   </Button>
                 </Box>
-                <Typography
-                  color="textSecondary"
-                  variant="body1"
-                >
+                <Typography color="textSecondary" variant="body1">
                   Chưa có tài khoản ?
                   {' '}
-                  <Link
-                    component={RouterLink}
-                    to="/register"
-                    variant="h6"
-                  >
+                  <Link component={RouterLink} to="/register" variant="h6">
                     Đăng ký
                   </Link>
                 </Typography>

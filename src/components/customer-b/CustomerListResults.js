@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { Edit, DeleteOutline, ViewModule } from '@material-ui/icons';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
   Avatar,
@@ -16,6 +16,13 @@ import {
   Typography
 } from '@material-ui/core';
 import getInitials from 'src/utils/getInitials';
+
+const getStyle = (maxWidth) => ({
+  maxWidth,
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden'
+});
 
 const CustomerListResults = ({ customers, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
@@ -73,7 +80,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
     <Card {...rest}>
       <PerfectScrollbar>
         <Box sx={{ minWidth: 1050 }}>
-          <Table>
+          <Table style={{ overflowX: 'scroll' }}>
             <TableHead>
               <TableRow>
                 <TableCell padding="checkbox">
@@ -81,19 +88,30 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     checked={selectedCustomerIds.length === customers.length}
                     color="primary"
                     indeterminate={
-                      selectedCustomerIds.length > 0 && selectedCustomerIds.length < customers.length
+                      selectedCustomerIds.length > 0
+                      && selectedCustomerIds.length < customers.length
                     }
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                <TableCell>Mã đơn hàng</TableCell>
-                <TableCell>Nha khoa - Nha sĩ</TableCell>
-                <TableCell>Tên khách hàng</TableCell>
-                <TableCell>Ngày nhận</TableCell>
-                <TableCell>Ngày giao</TableCell>
-                <TableCell style={{ textAlign: 'center' }}>Trạng thái đơn hàng</TableCell>
-                <TableCell>Ngày tạo</TableCell>
-                <TableCell>Tổng hóa đơn</TableCell>
+                <TableCell style={getStyle(100)}>Mã đơn hàng</TableCell>
+                <TableCell style={getStyle(100)}>Loại đơn hàng</TableCell>
+                <TableCell style={getStyle(200)}>Tên nha khoa</TableCell>
+                <TableCell style={getStyle(200)}>Tên bệnh nhân</TableCell>
+                <TableCell style={getStyle(150)}>Ngày nhận</TableCell>
+                <TableCell style={getStyle(100)}>Thời gian nhận</TableCell>
+                <TableCell style={getStyle(150)}>Ngày giao</TableCell>
+                <TableCell style={getStyle(100)}>Thời gian giao</TableCell>
+                <TableCell style={getStyle(300)}>Diễn giải chỉ định</TableCell>
+                <TableCell style={getStyle(70)}>Số lượng</TableCell>
+                <TableCell style={getStyle(100)}>Màu</TableCell>
+                <TableCell style={getStyle(70)}>File</TableCell>
+                <TableCell style={getStyle(150)}>
+                  Ghi chú
+                </TableCell>
+                <TableCell style={getStyle(150)}>Trạng thái</TableCell>
+                <TableCell style={getStyle(150)}>Đơn giá</TableCell>
+                <TableCell style={getStyle(200)} />
               </TableRow>
             </TableHead>
             <TableBody>
@@ -110,9 +128,12 @@ const CustomerListResults = ({ customers, ...rest }) => {
                       value="true"
                     />
                   </TableCell>
-                  <TableCell>{customer.id}</TableCell>
-                  <TableCell>{`${customer.dentistry} - ${customer.dentist}`}</TableCell>
-                  <TableCell>
+                  <TableCell style={getStyle(100)}>{customer.id}</TableCell>
+                  <TableCell style={{ ...getStyle(100), color: '#52a1f1', fontWeight: 'bold' }}>{customer.type}</TableCell>
+                  <TableCell style={getStyle(200)}>
+                    {customer.dentistry}
+                  </TableCell>
+                  <TableCell style={getStyle(200)}>
                     <Box
                       sx={{
                         alignItems: 'center',
@@ -122,18 +143,48 @@ const CustomerListResults = ({ customers, ...rest }) => {
                       <Avatar src={customer.avatarUrl} sx={{ mr: 2 }}>
                         {getInitials(customer.name)}
                       </Avatar>
-                      <Typography color="textPrimary" variant="body1">
+                      <Typography
+                        color="textPrimary"
+                        variant="body1"
+                        style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}
+                      >
                         {customer.name}
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>{customer.receiveDate}</TableCell>
-                  <TableCell>{customer.releaseDate}</TableCell>
-                  <TableCell style={{ textAlign: 'center' }}><span style={{ color: '#24c324', fontWeight: 'bold' }}>Hoàn tất</span></TableCell>
-                  <TableCell>
-                    {moment(customer.createdAt).format('DD/MM/YYYY')}
+                  <TableCell style={getStyle(150)}>
+                    {customer.receiveDate}
                   </TableCell>
-                  <TableCell style={{ color: 'red', fontWeight: 'bold' }}>{customer.price}</TableCell>
+                  <TableCell style={getStyle(100)}>
+                    {customer.receiveTime}
+                  </TableCell>
+                  <TableCell style={getStyle(150)}>
+                    {customer.releaseDate}
+                  </TableCell>
+                  <TableCell style={getStyle(100)}>
+                    {customer.releaseTime}
+                  </TableCell>
+                  <TableCell style={getStyle(300)}>
+                    {customer.description}
+                  </TableCell>
+                  <TableCell style={getStyle(70)}>{customer.count}</TableCell>
+                  <TableCell style={{ ...getStyle(100), color: 'green' }}>{customer.color}</TableCell>
+                  <TableCell style={{ ...getStyle(70), fontWeight: 'bold', color: '#25e2f6' }}>Xem</TableCell>
+                  <TableCell style={getStyle(150)}>{customer.note}</TableCell>
+                  <TableCell style={{ ...getStyle(150), color: 'red' }}>Chờ gia công</TableCell>
+                  <TableCell style={getStyle(150)}>{customer.price}</TableCell>
+                  <TableCell
+                    style={{
+                      ...getStyle(200),
+                      verticalAlign: 'center'
+                    }}
+                  >
+                    <ViewModule />
+                    &nbsp; &nbsp;
+                    <Edit />
+                    &nbsp; &nbsp;
+                    <DeleteOutline />
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

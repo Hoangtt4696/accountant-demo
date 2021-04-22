@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
-import CreateOrderDetail from 'src/components/order/CreateOrder';
+import CreateOrderDetail from 'src/components/order/CreateOrder-a';
 
 const CreateOrder = () => (
   <>
