@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { experimentalStyled } from '@material-ui/core';
-import MainNavbar from './MainNavbar';
+// import MainNavbar from './MainNavbar';
 
 const MainLayoutRoot = experimentalStyled('div')(
   ({ theme }) => ({
@@ -16,7 +16,7 @@ const MainLayoutWrapper = experimentalStyled('div')({
   display: 'flex',
   flex: '1 1 auto',
   overflow: 'hidden',
-  paddingTop: 64
+  // paddingTop: 64
 });
 
 const MainLayoutContainer = experimentalStyled('div')({
@@ -33,7 +33,7 @@ const MainLayoutContent = experimentalStyled('div')({
 
 const MainLayout = () => (
   <MainLayoutRoot>
-    <MainNavbar />
+    {/* <MainNavbar /> */}
     <MainLayoutWrapper>
       <MainLayoutContainer>
         <MainLayoutContent>

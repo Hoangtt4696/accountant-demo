@@ -1,15 +1,15 @@
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import {
   Box,
   Button,
-  Checkbox,
+  // Checkbox,
   Container,
   FormHelperText,
-  Link,
-  TextField,
+  // Link,
+  // TextField,
   Typography
 } from '@material-ui/core';
 
@@ -27,10 +27,19 @@ const Register = () => {
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          alignItems: 'center'
         }}
       >
-        <Container maxWidth="sm">
+        <Container maxWidth="sm" style={{ display: 'flex', maxWidth: '900px' }}>
+          <div
+            style={{
+              backgroundImage: "url('/static/images/register.png')",
+              paddingLeft: '50%',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat'
+            }}
+          />
           <Formik
             initialValues={{
               email: '',
@@ -39,38 +48,49 @@ const Register = () => {
               password: '',
               policy: false
             }}
-            validationSchema={
-              Yup.object().shape({
-                email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-                firstName: Yup.string().max(255).required('First name is required'),
-                lastName: Yup.string().max(255).required('Last name is required'),
-                password: Yup.string().max(255).required('password is required'),
-                policy: Yup.boolean().oneOf([true], 'This field must be checked')
-              })
-            }
+            validationSchema={Yup.object().shape({
+              email: Yup.string()
+                .email('Must be a valid email')
+                .max(255)
+                .required('Email is required'),
+              firstName: Yup.string()
+                .max(255)
+                .required('First name is required'),
+              lastName: Yup.string().max(255).required('Last name is required'),
+              password: Yup.string().max(255).required('password is required'),
+              policy: Yup.boolean().oneOf([true], 'This field must be checked')
+            })}
             onSubmit={() => {
               navigate('/app/dashboard', { replace: true });
             }}
           >
             {({
               errors,
-              handleBlur,
-              handleChange,
+              // handleBlur,
+              // handleChange,
               handleSubmit,
               isSubmitting,
               touched,
-              values
+              // values
             }) => (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} style={{ minWidth: 370 }}>
                 <Box sx={{ mb: 3 }}>
                   <Typography
                     color="textPrimary"
                     variant="h2"
+                    style={{ color: '#4460F1' }}
                   >
                     Tạo tài khoản
                   </Typography>
+                  <Typography
+                    variant="textPrimary"
+                    component="h4"
+                    style={{ marginTop: 10, color: '#7D8084' }}
+                  >
+                    Vui lòng hãy nhập những thông tin sau
+                  </Typography>
                 </Box>
-                <TextField
+                {/* <TextField
                   error={Boolean(touched.firstName && errors.firstName)}
                   fullWidth
                   helperText={touched.firstName && errors.firstName}
@@ -119,8 +139,82 @@ const Register = () => {
                   type="password"
                   value={values.password}
                   variant="outlined"
+                /> */}
+                <input
+                  placeholder="Tên nha khoa"
+                  style={{
+                    width: '100%',
+                    padding: '18px 25px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    backgroundColor: '#E9EFF6',
+                    marginBottom: 20,
+                    outline: 'none'
+                  }}
                 />
-                <Box
+                <input
+                  placeholder="Địa chỉ"
+                  style={{
+                    width: '100%',
+                    padding: '18px 25px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    backgroundColor: '#E9EFF6',
+                    marginBottom: 20,
+                    outline: 'none'
+                  }}
+                />
+                <input
+                  placeholder="Số điện thoại"
+                  style={{
+                    width: '100%',
+                    padding: '18px 25px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    backgroundColor: '#E9EFF6',
+                    marginBottom: 20,
+                    outline: 'none'
+                  }}
+                />
+                <input
+                  placeholder="Email"
+                  style={{
+                    width: '100%',
+                    padding: '18px 25px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    backgroundColor: '#E9EFF6',
+                    marginBottom: 20,
+                    outline: 'none'
+                  }}
+                />
+                <input
+                  placeholder="Mật khẩu"
+                  type="password"
+                  style={{
+                    width: '100%',
+                    padding: '18px 25px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    backgroundColor: '#E9EFF6',
+                    marginBottom: 20,
+                    outline: 'none'
+                  }}
+                />
+                <input
+                  placeholder="Nhập lại mật khẩu"
+                  type="password"
+                  style={{
+                    width: '100%',
+                    padding: '18px 25px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    backgroundColor: '#E9EFF6',
+                    marginBottom: 20,
+                    outline: 'none'
+                  }}
+                />
+                {/* <Box
                   sx={{
                     alignItems: 'center',
                     display: 'flex',
@@ -132,12 +226,9 @@ const Register = () => {
                     name="policy"
                     onChange={handleChange}
                   />
-                  <Typography
-                    color="textSecondary"
-                    variant="body1"
-                  >
+                  <Typography color="textSecondary" variant="body1">
                     Đồng ý các
-                    {' '}
+                    &nbsp;
                     <Link
                       color="primary"
                       component={RouterLink}
@@ -148,11 +239,9 @@ const Register = () => {
                       điều khoản và điều kiện
                     </Link>
                   </Typography>
-                </Box>
+                </Box> */}
                 {Boolean(touched.policy && errors.policy) && (
-                  <FormHelperText error>
-                    {errors.policy}
-                  </FormHelperText>
+                  <FormHelperText error>{errors.policy}</FormHelperText>
                 )}
                 <Box sx={{ py: 2 }}>
                   <Button
@@ -162,24 +251,18 @@ const Register = () => {
                     size="large"
                     type="submit"
                     variant="contained"
+                    style={{ maxWidth: 250, borderRadius: 25, padding: 15 }}
                   >
-                    Đăng ký
+                    Tạo tài khoản
                   </Button>
                 </Box>
-                <Typography
-                  color="textSecondary"
-                  variant="body1"
-                >
+                {/* <Typography color="textSecondary" variant="body1">
                   Đã có tài khoản?
-                  {' '}
-                  <Link
-                    component={RouterLink}
-                    to="/login"
-                    variant="h6"
-                  >
+                  &nbsp;
+                  <Link component={RouterLink} to="/login" variant="h6">
                     Đăng nhâp
                   </Link>
-                </Typography>
+                </Typography> */}
               </form>
             )}
           </Formik>
