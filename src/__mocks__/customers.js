@@ -31,6 +31,11 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'tranvantrung123',
+    role: 'Ghi đơn',
+    resource: 'MEF',
+    resourceGroup: 'MEF'
   },
   {
     id: 'A0002',
@@ -62,6 +67,11 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'tranvana1',
+    role: 'Ghi đơn',
+    resource: 'MEF',
+    resourceGroup: 'MEF'
   },
   {
     id: 'A0003',
@@ -93,6 +103,11 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'truonghien3',
+    role: 'Kế toán',
+    resource: 'Màu sứ',
+    resourceGroup: 'Màu sứ'
   },
   {
     id: 'A0004',
@@ -124,6 +139,11 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'buumongtruc2',
+    role: 'Ghi đơn',
+    resource: 'Màu sứ',
+    resourceGroup: 'Màu sứ'
   },
   {
     id: 'A0005',
@@ -155,6 +175,11 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'antan55',
+    role: 'Kế toán',
+    resource: 'Màu sứ',
+    resourceGroup: 'Màu sứ'
   },
   {
     id: 'A0006',
@@ -186,6 +211,11 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'kimhoangthai46',
+    role: 'Ghi đơn',
+    resource: 'Màu sứ',
+    resourceGroup: 'Màu sứ'
   },
   {
     id: 'A0007',
@@ -217,6 +247,11 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'tuhao17',
+    role: 'Kế toán',
+    resource: 'Màu sứ',
+    resourceGroup: 'Màu sứ'
   },
   {
     id: 'A0008',
@@ -248,6 +283,11 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'ninhmanaa',
+    role: 'Kế toán',
+    resource: 'Màu sứ',
+    resourceGroup: 'Màu sứ'
   },
   {
     id: 'A0009',
@@ -279,6 +319,11 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'khuuchinh123',
+    role: 'Ghi đơn',
+    resource: 'Màu sứ',
+    resourceGroup: 'Màu sứ'
   },
   {
     id: 'A0010',
@@ -310,5 +355,10 @@ export default [
     department: 'ABC',
     employee: 'Trần Văn Trung',
     wage: '150.000',
+    position: 46,
+    username: 'phuongthao123',
+    role: 'Ghi đơn',
+    resource: 'Màu sứ',
+    resourceGroup: 'Màu sứ'
   }
 ];

@@ -16,7 +16,7 @@ const CreateOrder = () => (
     >
       <Container maxWidth="lg">
         <Grid container spacing={3}>
-          <Grid item lg={12} md={6} xs={12}>
+          <Grid item lg={12} md={12} xs={12}>
             <CreateOrderDetail />
           </Grid>
         </Grid>

@@ -1,74 +1,47 @@
+/* eslint-disable */
+
 import {
   Avatar,
-  // Box,
+  Box,
   Card,
   CardContent,
-  Grid,
   Typography
 } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
-// import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PeopleIcon from '@material-ui/icons/PeopleOutlined';
 
 const TotalCustomers = (props) => (
-  <Card {...props}>
+  <Card sx={{ height: '100%', borderRadius: 2 }} {...props}>
     <CardContent>
-      <Grid
-        container
-        spacing={3}
-        sx={{ justifyContent: 'space-between' }}
-      >
-        <Grid item>
-          <Typography
-            color="textSecondary"
-            gutterBottom
-            variant="h6"
-          >
-            Đơn hàng đang giao
-          </Typography>
-          <Typography
-            color="textPrimary"
-            variant="h3"
-          >
-            15
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Avatar
-            sx={{
-              backgroundColor: green[600],
-              height: 56,
-              width: 56
-            }}
-          >
-            <PeopleIcon />
-          </Avatar>
-        </Grid>
-      </Grid>
-      {/* <Box
-        sx={{
-          alignItems: 'center',
-          display: 'flex',
-          pt: 2
-        }}
-      >
-        <ArrowUpwardIcon sx={{ color: green[900] }} />
-        <Typography
-          variant="body2"
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Avatar
           sx={{
-            color: green[900],
-            mr: 1
+            backgroundColor: green[600],
+            height: 56,
+            width: 56
           }}
         >
-          16%
-        </Typography>
+          <PeopleIcon />
+        </Avatar>
         <Typography
           color="textSecondary"
-          variant="caption"
+          gutterBottom
+          variant="h2"
+          style={{ fontWeight: 'bold', color: '#000' }}
         >
-          Since last month
+          18
         </Typography>
-      </Box> */}
+      </Box>
+      <Box sx={{ mt: 2 }}>
+        <Typography
+          color="textSecondary"
+          gutterBottom
+          variant="h6"
+          style={{ fontWeight: 'bold', color: '#000' }}
+        >
+          Đơn hàng hôm nay
+        </Typography>
+      </Box>
     </CardContent>
   </Card>
 );

@@ -33,7 +33,7 @@ const ProductListToolbar = (props) => (
     <Box sx={{ mt: 3 }}>
       <Card>
         <CardContent>
-          <Box sx={{ maxWidth: 500 }}>
+          <Box>
             <TextField
               fullWidth
               InputProps={{

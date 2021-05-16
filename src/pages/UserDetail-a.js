@@ -1,11 +1,13 @@
+/* eslint-disable */
+
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
-import CreateOrderDetail from 'src/components/order/CreateOrder-d';
+import UserDetail from 'src/components/user-list-a/UserDetail';
 
-const CreateOrder = () => (
+const Account = (props) => (
   <>
     <Helmet>
-      <title>Tạo đơn hàng</title>
+      <title>Tài khoản</title>
     </Helmet>
     <Box
       sx={{
@@ -16,8 +18,8 @@ const CreateOrder = () => (
     >
       <Container maxWidth="lg">
         <Grid container spacing={3}>
-          <Grid item lg={12} md={12} xs={12}>
-            <CreateOrderDetail />
+          <Grid item xs={12}>
+            <UserDetail isDisabled breadcrumbs={props.breadcrumbs} type="user" />
           </Grid>
         </Grid>
       </Container>
@@ -25,4 +27,4 @@ const CreateOrder = () => (
   </>
 );
 
-export default CreateOrder;
+export default Account;

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import {
   NavLink as RouterLink,
   matchPath,
@@ -47,9 +49,7 @@ const NavItem = ({
         }}
         to={href}
       >
-        {Icon && (
-          <Icon size="20" />
-        )}
+        <span style={{ width: 30 }}>{Icon}</span>
         <span>
           {title}
         </span>
@@ -60,7 +60,6 @@ const NavItem = ({
 
 NavItem.propTypes = {
   href: PropTypes.string,
-  icon: PropTypes.elementType,
   title: PropTypes.string
 };
 

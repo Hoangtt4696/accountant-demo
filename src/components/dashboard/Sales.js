@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { Bar } from 'react-chartjs-2';
 import {
   Box,
@@ -10,7 +12,6 @@ import {
   colors
 } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const Sales = (props) => {
   const theme = useTheme();
@@ -19,16 +20,16 @@ const Sales = (props) => {
     datasets: [
       {
         backgroundColor: colors.indigo[500],
-        data: [18, 5, 19, 27, 29, 19, 20],
-        label: 'This year'
+        data: [18, 5, 19, 27, 29, 19, 20, 10, 29, 15, 20, 25],
+        label: 'Năm ngoái'
       },
       {
         backgroundColor: colors.grey[200],
-        data: [11, 20, 12, 29, 30, 25, 13],
-        label: 'Last year'
+        data: [11, 20, 12, 29, 30, 25, 13, 12, 20, 10, 15, 29],
+        label: 'Năm nay'
       }
     ],
-    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug']
+    labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12']
   };
 
   const options = {
@@ -94,11 +95,12 @@ const Sales = (props) => {
             endIcon={<ArrowDropDownIcon />}
             size="small"
             variant="text"
+            style={{ textTransform: 'none' }}
           >
-            Last 7 days
+            Tháng
           </Button>
         )}
-        title="Latest Sales"
+        title="Doanh thu"
       />
       <Divider />
       <CardContent>
@@ -114,23 +116,6 @@ const Sales = (props) => {
           />
         </Box>
       </CardContent>
-      <Divider />
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          p: 2
-        }}
-      >
-        <Button
-          color="primary"
-          endIcon={<ArrowRightIcon />}
-          size="small"
-          variant="text"
-        >
-          Overview
-        </Button>
-      </Box>
     </Card>
   );
 };

@@ -16,7 +16,7 @@ const AccountProfileDetails = (props) => (
       <Divider />
       <CardContent>
         <Grid container spacing={3}>
-          <Grid item md={3} xs={6}>
+          <Grid item xs={1}>
             <TextField
               fullWidth
               label="Mã số"
@@ -26,7 +26,7 @@ const AccountProfileDetails = (props) => (
               variant="outlined"
             />
           </Grid>
-          <Grid item md={3} xs={6}>
+          <Grid item xs={1}>
             <TextField
               fullWidth
               label="Ngày nhận"
@@ -35,8 +35,32 @@ const AccountProfileDetails = (props) => (
               size="small"
             />
           </Grid>
-          <Grid item md={6} xs={12}>
-            &nbsp;
+          <Grid item xs={4}>
+            <TextField
+              fullWidth
+              label="Ngày nhận"
+              name="customerName"
+              variant="outlined"
+              size="small"
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField
+              fullWidth
+              label="Ngày nhận"
+              name="customerName"
+              variant="outlined"
+              size="small"
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField
+              fullWidth
+              label="Ngày nhận"
+              name="customerName"
+              variant="outlined"
+              size="small"
+            />
           </Grid>
           <Grid item md={6} xs={12}>
             <TextField

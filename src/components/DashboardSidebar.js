@@ -1,26 +1,27 @@
+/* eslint-disable */
+
 import { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Avatar,
   Box,
-  // Button,
+  Button,
   Divider,
   Drawer,
-  Hidden,
   List,
-  Typography
+  Typography,
+  ListItem
 } from '@material-ui/core';
-import {
-  AlertCircle as AlertCircleIcon,
-  // BarChart as BarChartIcon,
-  Lock as LockIcon,
-  // Settings as SettingsIcon,
-  ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
-  UserPlus as UserPlusIcon
-  // Users as UsersIcon
-} from 'react-feather';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+import { faHospitalUser } from '@fortawesome/free-solid-svg-icons/faHospitalUser';
+import { faIdBadge } from '@fortawesome/free-solid-svg-icons/faIdBadge';
+import { faClipboardList } from '@fortawesome/free-solid-svg-icons/faClipboardList';
+import { faDolly } from '@fortawesome/free-solid-svg-icons/faDolly';
+import { faBabyCarriage } from '@fortawesome/free-solid-svg-icons/faBabyCarriage';
+import { faUserTag } from '@fortawesome/free-solid-svg-icons/faUserTag';
+import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
 import NavItem from './NavItem';
 
 const user = {
@@ -30,60 +31,45 @@ const user = {
 };
 
 const items = [
-  // {
-  //   href: '/app/dashboard',
-  //   icon: BarChartIcon,
-  //   title: 'Dashboard'
-  // },
+  {
+    href: '/app/dashboard',
+    icon: <FontAwesomeIcon icon={faHome} style={{ fontSize: 20 }} />,
+    title: 'Trang chủ'
+  },
   {
     href: '/app/orders-1',
-    icon: ShoppingBagIcon,
-    title: 'Đơn Hàng 1'
+    icon: <FontAwesomeIcon icon={faClipboardList} style={{ fontSize: 20 }} />,
+    title: 'Quản lý đơn hàng'
   },
   {
-    href: '/app/orders-2',
-    icon: ShoppingBagIcon,
-    title: 'Đơn Hàng 2'
+    href: '/app/customers-1',
+    icon: <FontAwesomeIcon icon={faHospitalUser} style={{ fontSize: 20 }} />,
+    title: 'Quản lý người dùng'
   },
   {
-    href: '/app/orders-3',
-    icon: ShoppingBagIcon,
-    title: 'Đơn Hàng 3'
+    href: '/app/employees-1',
+    icon: <FontAwesomeIcon icon={faIdBadge} style={{ fontSize: 20 }} />,
+    title: 'Quản lý nhân viên'
   },
   {
-    href: '/app/orders-4',
-    icon: ShoppingBagIcon,
-    title: 'Đơn Hàng 4'
+    href: '/app/users-1',
+    icon: <FontAwesomeIcon icon={faDolly} style={{ fontSize: 20 }} />,
+    title: 'Quản lý khách hàng'
   },
-  // {
-  //   href: '/app/products',
-  //   icon: ShoppingBagIcon,
-  //   title: 'Products'
-  // },
+  {
+    href: '/app/resources-1',
+    icon: <FontAwesomeIcon icon={faBabyCarriage} style={{ fontSize: 20 }} />,
+    title: 'Giá nguyên liệu'
+  },
   {
     href: '/app/account',
-    icon: UserIcon,
-    title: 'Tài khoản'
-  },
-  // {
-  //   href: '/app/settings',
-  //   icon: SettingsIcon,
-  //   title: 'Settings'
-  // },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Đăng nhập'
+    icon: <FontAwesomeIcon icon={faUserTag} style={{ fontSize: 20 }} />,
+    title: 'Quản lý tài khoản'
   },
   {
-    href: '/register',
-    icon: UserPlusIcon,
-    title: 'Đăng ký'
-  },
-  {
-    href: '/404',
-    icon: AlertCircleIcon,
-    title: 'Error'
+    href: '/app/settings',
+    icon: <FontAwesomeIcon icon={faCog} style={{ fontSize: 20 }} />,
+    title: 'Cài đặt'
   }
 ];
 
@@ -140,6 +126,22 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
               icon={item.icon}
             />
           ))}
+          <ListItem style={{ paddingTop: 20 }}>
+            <RouterLink
+              to="/app/create-order-1"
+              style={{
+                backgroundColor: '#5664d2',
+                color: 'white',
+                fontWeight: 'bold',
+                padding: 13,
+                borderRadius: 13,
+                textAlign: 'center',
+                width: '100%',
+              }}
+            >
+              Tạo đơn hàng
+            </RouterLink>
+          </ListItem>
         </List>
       </Box>
       <Box sx={{ flexGrow: 1 }} />
@@ -148,7 +150,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
 
   return (
     <>
-      <Hidden lgUp>
+      <Box sx={{ display: { xl: 'none', xs: 'block' } }}>
         <Drawer
           anchor="left"
           onClose={onMobileClose}
@@ -162,8 +164,8 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
         >
           {content}
         </Drawer>
-      </Hidden>
-      <Hidden lgDown>
+      </Box>
+      <Box sx={{ display: { xl: 'block', xs: 'none' } }}>
         <Drawer
           anchor="left"
           open
@@ -178,7 +180,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
         >
           {content}
         </Drawer>
-      </Hidden>
+      </Box>
     </>
   );
 };

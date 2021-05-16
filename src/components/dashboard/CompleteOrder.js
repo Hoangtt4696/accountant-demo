@@ -4,7 +4,7 @@ import { Avatar, Box, Card, CardContent, Typography } from '@material-ui/core';
 import MoneyIcon from '@material-ui/icons/Money';
 import { red } from '@material-ui/core/colors';
 
-const Budget = (props) => (
+const CompleteOrder = (props) => (
   <Card sx={{ height: '100%', borderRadius: 2 }} {...props}>
     <CardContent>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -40,4 +40,4 @@ const Budget = (props) => (
   </Card>
 );
 
-export default Budget;
+export default CompleteOrder;

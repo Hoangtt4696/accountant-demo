@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useState } from 'react';
 import {
   Box,
@@ -7,32 +9,21 @@ import {
   CardHeader,
   Divider,
   Grid,
-  TextField
+  Breadcrumbs,
+  Typography,
 } from '@material-ui/core';
-
-const states = [
-  {
-    value: 'hcm',
-    label: 'Hồ Chính Minh'
-  },
-  {
-    value: 'new-york',
-    label: 'Hà Nội'
-  },
-  {
-    value: 'san-francisco',
-    label: 'Ninh Thuận'
-  }
-];
+import TextField from '../TextField';
+import DateTimePicker from '../DateTimePicker';
 
 const AccountProfileDetails = (props) => {
   const [values, setValues] = useState({
     firstName: 'Nguyễn',
     lastName: 'Hải Châu',
     email: 'haichaunguyen@gmail.com',
-    phone: '',
+    phone: '0989392123',
     state: 'hcm',
-    country: 'Việt Name'
+    gender: 'Nam',
+    country: 'Việt Nam'
   });
 
   const handleChange = (event) => {
@@ -44,21 +35,27 @@ const AccountProfileDetails = (props) => {
 
   return (
     <form autoComplete="off" noValidate {...props}>
+      <Breadcrumbs aria-label="breadcrumb" style={{ fontSize: 14, marginBottom: 40 }}>
+        <Typography style={{ fontSize: 14 }} color="inherit">Trang chủ</Typography>
+        <Typography style={{ fontSize: 14 }} color="inherit">Quản lý tài khoản</Typography>
+      </Breadcrumbs>
       <Card>
-        <CardHeader subheader="Thông tin có thể chỉnh sửa" title="Hồ sơ" />
-        <Divider />
+        <CardHeader title="Thông tin tài khoản" />
+        <Box sx={{ margin: '0 0 20px' }}>
+          <Divider />
+        </Box>
         <CardContent>
           <Grid container spacing={3}>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                helperText="Họ"
                 label="Họ"
                 name="firstName"
                 onChange={handleChange}
-                required
+                size="small"
                 value={values.firstName}
                 variant="outlined"
+                disabled
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -66,19 +63,31 @@ const AccountProfileDetails = (props) => {
                 fullWidth
                 label="Tên"
                 name="lastName"
+                size="small"
                 onChange={handleChange}
-                required
                 value={values.lastName}
+                variant="outlined"
+                disabled
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                label="Giới tính"
+                size="small"
+                onChange={handleChange}
+                value={values.gender}
+                disabled
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Email Address"
-                name="email"
+                label="Địa chỉ email"
+                disabled
+                size="small"
                 onChange={handleChange}
-                required
                 value={values.email}
                 variant="outlined"
               />
@@ -87,56 +96,42 @@ const AccountProfileDetails = (props) => {
               <TextField
                 fullWidth
                 label="Số điện thoại"
-                name="phone"
+                disabled
+                name="country"
+                size="small"
                 onChange={handleChange}
-                type="number"
                 value={values.phone}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label="Quốc tịch"
-                name="country"
-                onChange={handleChange}
-                required
-                value={values.country}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label="Thành phố"
-                name="state"
-                onChange={handleChange}
-                required
-                select
-                SelectProps={{ native: true }}
-                value={values.state}
-                variant="outlined"
-              >
-                {states.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
+              <DateTimePicker label="Ngày tháng năm sinh" disabled />
             </Grid>
           </Grid>
         </CardContent>
-        <Divider />
+        <Box sx={{ margin: '20px 0' }}>
+          <Divider />
+        </Box>
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: 'space-between',
             p: 2
           }}
         >
-          <Button color="primary" variant="contained">
-            Lưu
+          <Button size="small" style={{ textTransform: 'none' }} color="primary" variant="contained">
+            Về trang chủ
           </Button>
+          <Box>
+            <Button size="small" style={{ textTransform: 'none' }} color="primary" variant="contained">
+              Sửa
+            </Button>
+            &nbsp;
+            &nbsp;
+            <Button size="small" style={{ backgroundColor: 'silver', textTransform: 'none' }} variant="contained">
+              Lưu
+            </Button>
+          </Box>
         </Box>
       </Card>
     </form>

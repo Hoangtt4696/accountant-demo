@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
-import CreateOrderDetail from 'src/components/order/CreateOrder-d';
+import OrderDetail1 from 'src/components/order/OrderDetail-a';
 
-const CreateOrder = () => (
+const OrderDetaila = () => (
   <>
     <Helmet>
-      <title>Tạo đơn hàng</title>
+      <title>Chi tiết đơn hàng</title>
     </Helmet>
     <Box
       sx={{
@@ -17,7 +17,7 @@ const CreateOrder = () => (
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item lg={12} md={12} xs={12}>
-            <CreateOrderDetail />
+            <OrderDetail1 />
           </Grid>
         </Grid>
       </Container>
@@ -25,4 +25,4 @@ const CreateOrder = () => (
   </>
 );
 
-export default CreateOrder;
+export default OrderDetaila;

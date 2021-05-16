@@ -1,12 +1,13 @@
-import { Helmet } from 'react-helmet';
-import { Box, Container } from '@material-ui/core';
-import SettingsNotifications from 'src/components/settings/SettingsNotifications';
-import SettingsPassword from 'src/components/settings/SettingsPassword';
+/* eslint-disable */
 
-const SettingsView = () => (
+import { Helmet } from 'react-helmet';
+import { Box, Container, Grid } from '@material-ui/core';
+import Settings from 'src/components/Settings';
+
+const SettingUI = () => (
   <>
     <Helmet>
-      <title>Settings | Material Kit</title>
+      <title>Tài khoản</title>
     </Helmet>
     <Box
       sx={{
@@ -16,13 +17,14 @@ const SettingsView = () => (
       }}
     >
       <Container maxWidth="lg">
-        <SettingsNotifications />
-        <Box sx={{ pt: 3 }}>
-          <SettingsPassword />
-        </Box>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Settings />
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   </>
 );
 
-export default SettingsView;
+export default SettingUI;

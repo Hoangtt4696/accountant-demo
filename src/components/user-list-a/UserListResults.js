@@ -29,7 +29,7 @@ const getStyle = (maxWidth) => ({
   overflow: 'hidden'
 });
 
-const CustomerListResults = ({ customers, ...rest }) => {
+const UserListResults = ({ customers, type, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -99,21 +99,19 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                <TableCell style={getStyle(200)}>Ngày & giờ nhận</TableCell>
-                <TableCell style={getStyle(100)}>Mã đơn hàng</TableCell>
-                <TableCell style={getStyle(100)}>Đơn chỉnh sửa</TableCell>
-                <TableCell style={getStyle(200)}>Tên nha khoa</TableCell>
-                <TableCell style={getStyle(200)}>Tên bệnh nhân</TableCell>
-                <TableCell style={getStyle(100)}>Vị trí</TableCell>
-                <TableCell style={getStyle(300)}>Diễn giải chỉ định</TableCell>
-                <TableCell style={getStyle(100)}>Số lượng</TableCell>
-                <TableCell style={getStyle(200)}>Ngày & giờ giao</TableCell>
-                <TableCell style={getStyle(150)}>Trạng thái</TableCell>
+                <TableCell style={getStyle(100)}>STT</TableCell>
+                <TableCell style={getStyle(100)}>ID</TableCell>
+                <TableCell style={getStyle(200)}>Tên đăng nhập</TableCell>
+                <TableCell style={getStyle(200)}>Email</TableCell>
+                <TableCell style={getStyle(150)}>Số điện thoại</TableCell>
+                <TableCell style={getStyle(150)}>Vai trò</TableCell>
+                <TableCell style={getStyle(200)}>Tên nhân viên</TableCell>
+                <TableCell style={getStyle(200)}>Ngày tạo</TableCell>
                 <TableCell style={getStyle(150)} />
               </TableRow>
             </TableHead>
             <TableBody>
-              {customers.slice(0, limit).map((customer) => (
+              {customers.slice(0, limit).map((customer, idx) => (
                 <TableRow
                   hover
                   key={customer.id}
@@ -126,49 +124,33 @@ const CustomerListResults = ({ customers, ...rest }) => {
                       value="true"
                     />
                   </TableCell>
-                  <TableCell style={getStyle(200)}>
-                    {customer.receiveDate}
-                    &nbsp;
-                    {customer.receiveTime}
+                  <TableCell style={getStyle(100)}>
+                    {idx + 1}
                   </TableCell>
                   <TableCell style={getStyle(100)}>{customer.id}</TableCell>
-                  <TableCell
-                    style={{
-                      ...getStyle(100),
-                      textAlign: 'center',
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    -
+                  <TableCell style={getStyle(200)}>
+                    {customer.username}
                   </TableCell>
                   <TableCell style={getStyle(200)}>
-                    {customer.dentistry}
+                    {customer.email}
+                  </TableCell>
+                  <TableCell style={getStyle(150)}>
+                    {customer.phone}
+                  </TableCell>
+                  <TableCell style={getStyle(150)}>
+                    {customer.role}
                   </TableCell>
                   <TableCell style={getStyle(200)}>
-                    {customer.name}
+                    {customer.employee}
                   </TableCell>
-                  <TableCell style={getStyle(100)}>
-                    {customer.position}
-                  </TableCell>
-                  <TableCell style={getStyle(300)}>
-                    {customer.description}
-                  </TableCell>
-                  <TableCell style={getStyle(100)}>{customer.count}</TableCell>
-                  <TableCell style={getStyle(100)}>
-                    {customer.releaseDate}
-                    &nbsp;
-                    {customer.releaseTime}
-                  </TableCell>
-                  <TableCell style={{ ...getStyle(150), color: 'red' }}>
-                    Chờ gia công
-                  </TableCell>
+                  <TableCell style={getStyle(200)}>{customer.releaseDate}</TableCell>
                   <TableCell
                     style={{
                       ...getStyle(150),
                       verticalAlign: 'center'
                     }}
                   >
-                    <Link to="/app/orders-detail-1">
+                    <Link to={type === 'employee' ? '/app/employees-detail-1' : type === 'user' ? '/app/users-detail-1' : '/app/customer-detail-1'}>
                       <FontAwesomeIcon
                         icon={faFileAlt}
                         style={{ color: '#aeb7c6', fontSize: 15, cursor: 'pointer' }}
@@ -206,8 +188,8 @@ const CustomerListResults = ({ customers, ...rest }) => {
   );
 };
 
-CustomerListResults.propTypes = {
+UserListResults.propTypes = {
   customers: PropTypes.array.isRequired
 };
 
-export default CustomerListResults;
+export default UserListResults;
