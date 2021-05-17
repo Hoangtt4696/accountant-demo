@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+import React, { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
@@ -12,7 +15,20 @@ import {
 } from '@material-ui/core';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const handleLogin = () => {
+    if (!email || !password) return false;
+
+    if (email === '1') navigate('/app-1/dashboard', { replace: true });
+
+    if (email === '2') navigate('/app-2/orders-1', { replace: true });
+
+    if (email === '3') navigate('/app-3/orders-1', { replace: true });
+
+    if (email === '4') navigate('/app/dashboard', { replace: true });
+  };
 
   return (
     <>
@@ -92,6 +108,8 @@ const Login = () => {
                     marginBottom: 20,
                     outline: 'none'
                   }}
+                  value={email}
+                  onChange={e => { setEmail(e.target.value) }}
                 />
                 <input
                   placeholder="Mật khẩu"
@@ -105,6 +123,8 @@ const Login = () => {
                     marginBottom: 5,
                     outline: 'none'
                   }}
+                  value={password}
+                  onChange={e => { setPassword(e.target.value) }}
                 />
                 <Typography color="textSecondary" variant="body1" style={{ textAlign: 'right' }}>
                   <Link component={RouterLink} to="/register" variant="h6">
@@ -147,12 +167,12 @@ const Login = () => {
                     disabled={isSubmitting}
                     fullWidth
                     size="large"
-                    type="submit"
                     variant="contained"
                     style={{
                       borderRadius: 8,
                       marginTop: 30
                     }}
+                    onClick={handleLogin}
                   >
                     Đăng nhập
                   </Button>

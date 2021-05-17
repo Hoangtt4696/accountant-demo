@@ -1,7 +1,9 @@
+/* eslint-disable */
+
 import { useState } from 'react';
-import { Edit, DeleteOutline, ViewModule } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Link } from 'react-router-dom';
 import {
   Avatar,
   Box,
@@ -15,7 +17,10 @@ import {
   TableRow,
   Typography
 } from '@material-ui/core';
-import getInitials from 'src/utils/getInitials';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+import { faFileAlt } from '@fortawesome/free-solid-svg-icons/faFileAlt';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const getStyle = (maxWidth) => ({
   maxWidth,
@@ -94,32 +99,23 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
+                <TableCell style={getStyle(70)}>STT</TableCell>
+                <TableCell style={getStyle(200)}>Ngày nhận</TableCell>
                 <TableCell style={getStyle(100)}>Mã đơn hàng</TableCell>
-                <TableCell style={getStyle(100)}>Loại đơn hàng</TableCell>
+                <TableCell style={getStyle(110)}>Đơn chỉnh sửa</TableCell>
                 <TableCell style={getStyle(200)}>Tên nha khoa</TableCell>
                 <TableCell style={getStyle(200)}>Tên bệnh nhân</TableCell>
-                <TableCell style={getStyle(150)}>Ngày nhận</TableCell>
-                <TableCell style={getStyle(100)}>Thời gian nhận</TableCell>
-                <TableCell style={getStyle(150)}>Ngày giao</TableCell>
-                <TableCell style={getStyle(100)}>Thời gian giao</TableCell>
+                <TableCell style={getStyle(100)}>Vị trí</TableCell>
                 <TableCell style={getStyle(300)}>Diễn giải chỉ định</TableCell>
-                <TableCell style={getStyle(70)}>Số lượng</TableCell>
-                <TableCell style={getStyle(100)}>Màu</TableCell>
-                <TableCell style={getStyle(70)}>File</TableCell>
-                <TableCell style={getStyle(150)}>
-                  Ghi chú
-                </TableCell>
+                <TableCell style={getStyle(100)}>Số lượng</TableCell>
+                <TableCell style={getStyle(100)}>Thành tiền</TableCell>
+                <TableCell style={getStyle(200)}>Ngày giao</TableCell>
                 <TableCell style={getStyle(150)}>Trạng thái</TableCell>
-                <TableCell style={getStyle(150)}>Ngày hoàn thành</TableCell>
-                <TableCell style={getStyle(100)}>Thời gian hoàn thành</TableCell>
-                <TableCell style={getStyle(150)}>Bộ phận</TableCell>
-                <TableCell style={getStyle(200)}>Nhân viên</TableCell>
-                <TableCell style={getStyle(150)}>Tiền công</TableCell>
-                <TableCell style={getStyle(200)} />
+                <TableCell style={getStyle(150)} />
               </TableRow>
             </TableHead>
             <TableBody>
-              {customers.slice(0, limit).map((customer) => (
+              {customers.slice(0, limit).map((customer, idx) => (
                 <TableRow
                   hover
                   key={customer.id}
@@ -132,66 +128,64 @@ const CustomerListResults = ({ customers, ...rest }) => {
                       value="true"
                     />
                   </TableCell>
+                  <TableCell style={getStyle(70)}>{idx + 1}</TableCell>
+                  <TableCell style={getStyle(200)}>
+                    {customer.receiveDate}
+                  </TableCell>
                   <TableCell style={getStyle(100)}>{customer.id}</TableCell>
-                  <TableCell style={{ ...getStyle(100), color: '#52a1f1', fontWeight: 'bold' }}>{customer.type}</TableCell>
+                  <TableCell
+                    style={{
+                      ...getStyle(110),
+                      textAlign: 'center',
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    -
+                  </TableCell>
                   <TableCell style={getStyle(200)}>
                     {customer.dentistry}
                   </TableCell>
                   <TableCell style={getStyle(200)}>
-                    <Box
-                      sx={{
-                        alignItems: 'center',
-                        display: 'flex'
-                      }}
-                    >
-                      <Avatar src={customer.avatarUrl} sx={{ mr: 2 }}>
-                        {getInitials(customer.name)}
-                      </Avatar>
-                      <Typography
-                        color="textPrimary"
-                        variant="body1"
-                        style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}
-                      >
-                        {customer.name}
-                      </Typography>
-                    </Box>
-                  </TableCell>
-                  <TableCell style={getStyle(150)}>
-                    {customer.receiveDate}
+                    {customer.name}
                   </TableCell>
                   <TableCell style={getStyle(100)}>
-                    {customer.receiveTime}
-                  </TableCell>
-                  <TableCell style={getStyle(150)}>
-                    {customer.releaseDate}
-                  </TableCell>
-                  <TableCell style={getStyle(100)}>
-                    {customer.releaseTime}
+                    {customer.position}
                   </TableCell>
                   <TableCell style={getStyle(300)}>
                     {customer.description}
                   </TableCell>
-                  <TableCell style={getStyle(70)}>{customer.count}</TableCell>
-                  <TableCell style={{ ...getStyle(100), color: 'green' }}>{customer.color}</TableCell>
-                  <TableCell style={{ ...getStyle(70), fontWeight: 'bold', color: '#25e2f6' }}>Xem</TableCell>
-                  <TableCell style={getStyle(150)}>{customer.note}</TableCell>
-                  <TableCell style={{ ...getStyle(150), color: 'red' }}>Chờ gia công</TableCell>
-                  <TableCell style={getStyle(150)}>{customer.finishDate}</TableCell>
-                  <TableCell style={getStyle(100)}>{customer.finishTime}</TableCell>
-                  <TableCell style={getStyle(150)}>{customer.department}</TableCell>
-                  <TableCell style={getStyle(200)}>{customer.employee}</TableCell>
-                  <TableCell style={getStyle(150)}>{customer.wage}</TableCell>
+                  <TableCell style={getStyle(100)}>{customer.count}</TableCell>
+                  <TableCell style={{ ...getStyle(100), color: 'blue' }}>Nhập</TableCell>
+                  <TableCell style={getStyle(100)}>
+                    {customer.releaseDate}
+                  </TableCell>
+                  <TableCell style={{ ...getStyle(150), color: 'red' }}>
+                    Chờ gia công
+                  </TableCell>
                   <TableCell
                     style={{
-                      ...getStyle(200),
+                      ...getStyle(150),
                       verticalAlign: 'center'
                     }}
                   >
-                    <ViewModule />
-                    &nbsp; &nbsp;
-                    <Edit />
-                    &nbsp; &nbsp;
-                    <DeleteOutline />
+                    <Link to="/app-2/orders-detail-1">
+                      <FontAwesomeIcon
+                        icon={faFileAlt}
+                        style={{ color: '#aeb7c6', fontSize: 15, cursor: 'pointer' }}
+                      />
+                    </Link>
+                    &nbsp;&nbsp;&nbsp;
+                    <Link to="/app-2/orders-detail-3">
+                      <FontAwesomeIcon
+                        icon={faPencilAlt}
+                        style={{ color: '#aeb7c6', fontSize: 15, cursor: 'pointer' }}
+                      />
+                    </Link>
+                    &nbsp;&nbsp;&nbsp;
+                    <FontAwesomeIcon
+                      icon={faTrashAlt}
+                      style={{ color: '#ff6151', fontSize: 15, cursor: 'pointer' }}
+                    />
                   </TableCell>
                 </TableRow>
               ))}

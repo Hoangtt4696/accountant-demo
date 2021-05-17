@@ -7,6 +7,7 @@ import CustomerList2 from 'src/pages/CustomerList-b';
 import CustomerList3 from 'src/pages/CustomerList-c';
 import CustomerList4 from 'src/pages/CustomerList-d';
 import Dashboard from 'src/pages/Dashboard';
+import Dashboard1 from 'src/pages/Dashboard1';
 import Login from 'src/pages/Login';
 import NotFound from 'src/pages/NotFound';
 import ProductList from 'src/pages/ProductList';
@@ -61,6 +62,47 @@ const routes = [
       { path: 'products', element: <ProductList /> },
       { path: 'settings', element: <Settings /> },
       { path: '*', element: <Navigate to="/404" /> }
+    ]
+  },
+  {
+    path: 'app-1',
+    element: <DashboardLayout type="1" />,
+    children: [
+      { path: 'dashboard', element: <Dashboard1 /> },
+      { path: 'orders-1', element: <CustomerList2 /> },
+      { path: 'create-order-1', element: <CreateOrder1 /> },
+      { path: 'orders-detail-1', element: <OrderDetail1 /> },
+      { path: 'orders-detail-2', element: <OrderDetail2 type="1" /> },
+      { path: 'orders-detail-3', element: <OrderDetail3 /> },
+      { path: 'customer-create-1', element: <CreateUser1 breadcrumbs={['Quản lý người dùng', 'Tạo tài khoản người dùng']} /> },
+      { path: 'account', element: <Account /> },
+      { path: 'settings', element: <Settings /> },
+    ]
+  },
+  {
+    path: 'app-2',
+    element: <DashboardLayout type="2" />,
+    children: [
+      { path: 'orders-1', element: <CustomerList3 /> },
+      { path: 'orders-detail-1', element: <OrderDetail1 /> },
+      { path: 'orders-detail-2', element: <OrderDetail2 type="2" /> },
+      { path: 'orders-detail-3', element: <OrderDetail3 /> },
+      { path: 'customer-create-1', element: <CreateUser1 breadcrumbs={['Quản lý người dùng', 'Tạo tài khoản người dùng']} /> },
+      { path: 'account', element: <Account /> },
+      { path: 'settings', element: <Settings /> },
+    ]
+  },
+  {
+    path: 'app-3',
+    element: <DashboardLayout type="3" />,
+    children: [
+      { path: 'orders-1', element: <CustomerList4 /> },
+      { path: 'orders-detail-1', element: <OrderDetail1 /> },
+      { path: 'orders-detail-2', element: <OrderDetail2 type="3" /> },
+      { path: 'orders-detail-3', element: <OrderDetail3 /> },
+      { path: 'customer-create-1', element: <CreateUser1 breadcrumbs={['Quản lý người dùng', 'Tạo tài khoản người dùng']} /> },
+      { path: 'account', element: <Account /> },
+      { path: 'settings', element: <Settings /> },
     ]
   },
   {

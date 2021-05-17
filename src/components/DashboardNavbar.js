@@ -33,9 +33,11 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <IconButton color="inherit">
-            <InputIcon />
-          </IconButton>
+          <RouterLink to="/login" style={{ color: 'white' }}>
+            <IconButton color="inherit">
+              <InputIcon />
+            </IconButton>
+          </RouterLink>
         </Box>
         <Box sx={{ display: { xl: 'none', xs: 'block' } }}>
           <IconButton color="inherit" onClick={onMobileNavOpen}>

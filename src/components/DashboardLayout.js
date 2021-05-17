@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { experimentalStyled } from '@material-ui/core';
@@ -38,7 +40,7 @@ const DashboardLayoutContent = experimentalStyled('div')({
   overflow: 'auto'
 });
 
-const DashboardLayout = () => {
+const DashboardLayout = (props) => {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
@@ -47,6 +49,7 @@ const DashboardLayout = () => {
       <DashboardSidebar
         onMobileClose={() => setMobileNavOpen(false)}
         openMobile={isMobileNavOpen}
+        type={props.type}
       />
       <DashboardLayoutWrapper>
         <DashboardLayoutContainer>

@@ -15,6 +15,7 @@ import {
   RadioGroup,
   Radio
 } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
@@ -49,6 +50,8 @@ const FormControlLabelUI = withStyles({
 const AccountProfileDetails = (props) => {
   const list = {};
   const list1 = {};
+  const navigate = useNavigate();
+  const prefix = props.type === '1' ? 'app-1' : props.type === '2' ? 'app-2' : props.type === '3' ? 'app-3' : 'app';
 
   ITEMS.forEach((item) => {
     if (['Model', 'Wax'].includes(item)) {
@@ -563,9 +566,9 @@ const AccountProfileDetails = (props) => {
                 border: 'none',
                 maxWidth: 100
               }}
+              onClick={() => { navigate('../orders-detail-2', { replace: true }) }}
             >
               Sửa
-              <input type="file" hidden />
             </Button>
             <Button
               variant="contained"

@@ -559,7 +559,6 @@ const AccountProfileDetails = (props) => {
               }}
             >
               Sửa
-              <input type="file" hidden />
             </Button>
             <Button
               variant="contained"

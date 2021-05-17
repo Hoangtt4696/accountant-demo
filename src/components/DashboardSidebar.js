@@ -73,8 +73,83 @@ const items = [
   }
 ];
 
-const DashboardSidebar = ({ onMobileClose, openMobile }) => {
+const items1 = [
+  {
+    href: '/app-1/dashboard',
+    icon: <FontAwesomeIcon icon={faHome} style={{ fontSize: 20 }} />,
+    title: 'Trang chủ'
+  },
+  {
+    href: '/app-1/orders-1',
+    icon: <FontAwesomeIcon icon={faClipboardList} style={{ fontSize: 20 }} />,
+    title: 'Quản lý đơn hàng'
+  },
+  {
+    href: '/app-1/account',
+    icon: <FontAwesomeIcon icon={faUserTag} style={{ fontSize: 20 }} />,
+    title: 'Quản lý tài khoản'
+  },
+  {
+    href: '/app-1/settings',
+    icon: <FontAwesomeIcon icon={faCog} style={{ fontSize: 20 }} />,
+    title: 'Cài đặt'
+  }
+];
+
+const items2 = [
+  {
+    href: '/app-2/orders-1',
+    icon: <FontAwesomeIcon icon={faClipboardList} style={{ fontSize: 20 }} />,
+    title: 'Quản lý đơn hàng'
+  },
+  {
+    href: '/app-2/account',
+    icon: <FontAwesomeIcon icon={faUserTag} style={{ fontSize: 20 }} />,
+    title: 'Quản lý tài khoản'
+  },
+  {
+    href: '/app-2/settings',
+    icon: <FontAwesomeIcon icon={faCog} style={{ fontSize: 20 }} />,
+    title: 'Cài đặt'
+  }
+];
+
+const items3 = [
+  {
+    href: '/app-3/orders-1',
+    icon: <FontAwesomeIcon icon={faClipboardList} style={{ fontSize: 20 }} />,
+    title: 'Quản lý đơn hàng'
+  },
+  {
+    href: '/app-3/account',
+    icon: <FontAwesomeIcon icon={faUserTag} style={{ fontSize: 20 }} />,
+    title: 'Quản lý tài khoản'
+  },
+  {
+    href: '/app-3/settings',
+    icon: <FontAwesomeIcon icon={faCog} style={{ fontSize: 20 }} />,
+    title: 'Cài đặt'
+  }
+];
+
+const DashboardSidebar = ({ onMobileClose, openMobile, type }) => {
   const location = useLocation();
+  const itemList =
+    type === '1'
+      ? items1
+      : type === '2'
+      ? items2
+      : type === '3'
+      ? items3
+      : items;
+  const prefixUrl =
+    type === '1'
+      ? 'app-1'
+      : type === '2'
+      ? 'app-2'
+      : type === '3'
+      ? 'app-3'
+      : 'app';
 
   useEffect(() => {
     if (openMobile && onMobileClose) {
@@ -106,7 +181,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
             width: 64,
             height: 64
           }}
-          to="/app/account"
+          to={`/${prefixUrl}/account`}
         />
         <Typography color="textPrimary" variant="h5">
           {user.name}
@@ -118,7 +193,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
       <Divider />
       <Box sx={{ p: 2 }}>
         <List>
-          {items.map((item) => (
+          {itemList.map((item) => (
             <NavItem
               href={item.href}
               key={item.title}
@@ -126,22 +201,24 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
               icon={item.icon}
             />
           ))}
-          <ListItem style={{ paddingTop: 20 }}>
-            <RouterLink
-              to="/app/create-order-1"
-              style={{
-                backgroundColor: '#5664d2',
-                color: 'white',
-                fontWeight: 'bold',
-                padding: 13,
-                borderRadius: 13,
-                textAlign: 'center',
-                width: '100%',
-              }}
-            >
-              Tạo đơn hàng
-            </RouterLink>
-          </ListItem>
+          {['1', '4'].includes(type) && (
+            <ListItem style={{ paddingTop: 20 }}>
+              <RouterLink
+                to={`/${prefixUrl}/create-order-1`}
+                style={{
+                  backgroundColor: '#5664d2',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  padding: 13,
+                  borderRadius: 13,
+                  textAlign: 'center',
+                  width: '100%'
+                }}
+              >
+                Tạo đơn hàng
+              </RouterLink>
+            </ListItem>
+          )}
         </List>
       </Box>
       <Box sx={{ flexGrow: 1 }} />
