@@ -29,7 +29,20 @@ const Sales = (props) => {
         label: 'Năm nay'
       }
     ],
-    labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12']
+    labels: [
+      'Tháng 1',
+      'Tháng 2',
+      'Tháng 3',
+      'Tháng 4',
+      'Tháng 5',
+      'Tháng 6',
+      'Tháng 7',
+      'Tháng 8',
+      'Tháng 9',
+      'Tháng 10',
+      'Tháng 11',
+      'Tháng 12'
+    ]
   };
 
   const options = {
@@ -90,7 +103,7 @@ const Sales = (props) => {
   return (
     <Card {...props}>
       <CardHeader
-        action={(
+        action={
           <Button
             endIcon={<ArrowDropDownIcon />}
             size="small"
@@ -99,10 +112,44 @@ const Sales = (props) => {
           >
             Tháng
           </Button>
-        )}
+        }
         title="Doanh thu"
       />
       <Divider />
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '10px',
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: 'silver',
+            padding: '10px 20px',
+            borderRadius: '10px',
+          }}
+        >
+          <span style={{ fontWeight: 'bold', fontSize: 12 }}>Doanh thu năm ngoái</span>
+          <span style={{ fontWeight: 'bold', marginTop: 10, marginLeft: 5 }}>100.000.000 đ</span>
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: '#5664d2',
+            padding: '10px 20px',
+            borderRadius: '10px',
+            color: 'white',
+            marginLeft: '10px',
+          }}
+        >
+          <span style={{ fontWeight: 'bold', fontSize: 12 }}>Doanh thu hiện tại</span>
+          <span style={{ fontWeight: 'bold', marginTop: 10, marginLeft: 5 }}>300.000.000 đ</span>
+        </Box>
+      </Box>
       <CardContent>
         <Box
           sx={{
@@ -110,10 +157,7 @@ const Sales = (props) => {
             position: 'relative'
           }}
         >
-          <Bar
-            data={data}
-            options={options}
-          />
+          <Bar data={data} options={options} />
         </Box>
       </CardContent>
     </Card>
