@@ -105,7 +105,8 @@ const UserListResults = ({ customers, type, ...rest }) => {
                 <TableCell style={getStyle(200)}>Email</TableCell>
                 <TableCell style={getStyle(150)}>Số điện thoại</TableCell>
                 <TableCell style={getStyle(150)}>Vai trò</TableCell>
-                <TableCell style={getStyle(200)}>Tên nhân viên</TableCell>
+                <TableCell style={getStyle(200)}>Tên công ty</TableCell>
+                <TableCell style={getStyle(200)}>Địa chỉ</TableCell>
                 <TableCell style={getStyle(200)}>Ngày tạo</TableCell>
                 <TableCell style={getStyle(150)} />
               </TableRow>
@@ -141,7 +142,10 @@ const UserListResults = ({ customers, type, ...rest }) => {
                     {customer.role}
                   </TableCell>
                   <TableCell style={getStyle(200)}>
-                    {customer.employee}
+                    {customer.dentistry}
+                  </TableCell>
+                  <TableCell style={getStyle(200)}>
+                    {Object.values(customer.address).join(' ')}
                   </TableCell>
                   <TableCell style={getStyle(200)}>{customer.releaseDate}</TableCell>
                   <TableCell
