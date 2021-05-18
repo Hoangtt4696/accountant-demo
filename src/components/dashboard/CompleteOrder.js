@@ -10,7 +10,7 @@ const CompleteOrder = (props) => (
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Avatar
           sx={{
-            backgroundColor: '#bdbdbd',
+            backgroundColor: '#424242',
             // backgroundColor: red[600],
             height: 56,
             width: 56

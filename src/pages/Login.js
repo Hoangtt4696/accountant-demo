@@ -49,7 +49,7 @@ const Login = () => {
         <Container maxWidth="sm" style={{ display: 'flex', maxWidth: '900px' }}>
           <div
             style={{
-              backgroundImage: "url('/static/images/login.png')",
+              backgroundImage: "url('/static/images/login_placeholder.png')",
               paddingLeft: 'calc(100% - 370px)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat'

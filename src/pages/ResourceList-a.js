@@ -41,7 +41,7 @@ const CustomerList = () => (
             variant="contained"
             style={{
               fontSize: 14,
-              backgroundColor: '#bdbdbd',
+              backgroundColor: '#424242',
               color: 'white',
               padding: '10px 15px',
               borderRadius: 8,

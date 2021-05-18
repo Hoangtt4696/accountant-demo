@@ -16,7 +16,7 @@ const TasksProgress = (props) => (
         <Avatar
           sx={{
             // backgroundColor: orange[600],
-            backgroundColor: '#bdbdbd',
+            backgroundColor: '#424242',
             height: 56,
             width: 56
           }}

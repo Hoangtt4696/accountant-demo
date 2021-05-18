@@ -11,7 +11,7 @@ const Budget = (props) => (
         <Avatar
           sx={{
             // backgroundColor: red[600],
-            backgroundColor: '#bdbdbd',
+            backgroundColor: '#424242',
             height: 56,
             width: 56
           }}

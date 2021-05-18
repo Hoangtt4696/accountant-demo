@@ -34,7 +34,7 @@ const Register = () => {
         <Container maxWidth="sm" style={{ display: 'flex', maxWidth: '900px' }}>
           <div
             style={{
-              backgroundImage: "url('/static/images/register.png')",
+              backgroundImage: "url('/static/images/login_placeholder.png')",
               paddingLeft: '50%',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat'
