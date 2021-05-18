@@ -9,7 +9,7 @@ import {
   Typography,
   Button
 } from '@material-ui/core';
-import UserListResults from 'src/components/user-list-a/UserListResults';
+import EmployeeListResults from 'src/components/employee-list-a/EmployeeListResults';
 import ListToolbar from 'src/components/ListToolbar';
 import customers from 'src/__mocks__/customers';
 
@@ -52,7 +52,7 @@ const CustomerList = () => (
           </Link>
         </Box>
         <Box sx={{ pt: 3 }}>
-          <UserListResults customers={customers} type="employee" />
+          <EmployeeListResults customers={customers} type="employee" />
         </Box>
       </Container>
     </Box>

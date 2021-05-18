@@ -19,7 +19,8 @@ const Sales = (props) => {
   const data = {
     datasets: [
       {
-        backgroundColor: colors.indigo[500],
+        // backgroundColor: colors.indigo[500],
+        backgroundColor: '#424242',
         data: [18, 5, 19, 27, 29, 19, 20, 10, 29, 15, 20, 25],
         label: 'Năm ngoái'
       },
@@ -139,7 +140,7 @@ const Sales = (props) => {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            backgroundColor: '#5664d2',
+            backgroundColor: '#424242',
             padding: '10px 20px',
             borderRadius: '10px',
             color: 'white',
