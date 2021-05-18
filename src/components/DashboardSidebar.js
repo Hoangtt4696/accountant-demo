@@ -206,7 +206,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile, type }) => {
               <RouterLink
                 to={`/${prefixUrl}/create-order-1`}
                 style={{
-                  backgroundColor: '#5664d2',
+                  backgroundColor: '#bdbdbd',
                   color: 'white',
                   fontWeight: 'bold',
                   padding: 13,

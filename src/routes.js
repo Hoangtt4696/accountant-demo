@@ -32,7 +32,7 @@ import CreateResource1 from 'src/pages/CreateResource-a';
 const routes = [
   {
     path: 'app',
-    element: <DashboardLayout />,
+    element: <DashboardLayout type="4" />,
     children: [
       { path: 'orders-1', element: <CustomerList1 /> },
       { path: 'orders-2', element: <CustomerList2 /> },
@@ -112,7 +112,7 @@ const routes = [
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
       { path: '404', element: <NotFound /> },
-      { path: '/', element: <Navigate to="/app/dashboard" /> },
+      { path: '/', element: <Navigate to="/login" /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

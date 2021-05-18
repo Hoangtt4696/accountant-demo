@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import {
   Box,
   Button,
@@ -33,6 +33,94 @@ const ITEMS = [
   'Orthodonnic'
 ];
 
+const Description = ({ count, setCount }) => {
+  const results = [];
+
+  for (let i = 0; i < count; i++) {
+    if (i === count - 1) {
+      results.push(
+        <Fragment key={`desc_${i + 1}`}>
+          <Grid item xs={1}>
+            <TextField fullWidth label="Màu" variant="outlined" size="small" />
+          </Grid>
+          <Grid item xs={2}>
+            <Select
+              options={[{ label: 'Vị trí', value: 1 }]}
+              defaultValue={1}
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField
+              fullWidth
+              label="Diễn giải chỉ định"
+              name="email"
+              variant="outlined"
+              size="small"
+            />
+          </Grid>
+          <Grid item xs={2}>
+            <TextField
+              fullWidth
+              label="Số lượng"
+              name="email"
+              variant="outlined"
+              size="small"
+            />
+          </Grid>
+          <Grid item md={1}>
+            <Button
+              variant="contained"
+              component="label"
+              fullWidth
+              id="files"
+              style={{ fontSize: 14, textTransform: 'none' }}
+              onClick={() => { setCount(count + 1) }}
+            >
+              Thêm
+            </Button>
+          </Grid>
+          <Grid item md={3} />
+        </Fragment>
+      );
+    } else {
+      results.push(
+        <Fragment key={`desc_${i + 1}`}>
+          <Grid item xs={1}>
+            <TextField fullWidth label="Màu" variant="outlined" size="small" />
+          </Grid>
+          <Grid item xs={2}>
+            <Select
+              options={[{ label: 'Vị trí', value: 1 }]}
+              defaultValue={1}
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField
+              fullWidth
+              label="Diễn giải chỉ định"
+              name="email"
+              variant="outlined"
+              size="small"
+            />
+          </Grid>
+          <Grid item xs={2}>
+            <TextField
+              fullWidth
+              label="Số lượng"
+              name="email"
+              variant="outlined"
+              size="small"
+            />
+          </Grid>
+          <Grid item md={4} />
+        </Fragment>
+      );
+    }
+  }
+
+  return results;
+};
+
 const FormControlLabelUI = withStyles({
   label: {
     fontSize: '14px !important'
@@ -44,6 +132,7 @@ const AccountProfileDetails = (props) => {
 
   ITEMS.forEach(item => list[item] = true );
 
+  const [totalDescription, setTotalDescription] = useState(1);
   const [displayList, setDisplayList] = useState(list);
   const handleFilterDisplayList = e => {
     const { name } = e.target;
@@ -112,46 +201,7 @@ const AccountProfileDetails = (props) => {
                 size="small"
               />
             </Grid>
-            <Grid item xs={1}>
-              <TextField fullWidth label="Màu" variant="outlined" size="small" />
-            </Grid>
-            <Grid item xs={2}>
-              <Select
-                options={[{ label: 'Vị trí', value: 1 }]}
-                defaultValue={1}
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                fullWidth
-                label="Diễn giải chỉ định"
-                name="email"
-                variant="outlined"
-                size="small"
-              />
-            </Grid>
-            <Grid item xs={2}>
-              <TextField
-                fullWidth
-                label="Số lượng"
-                name="email"
-                variant="outlined"
-                size="small"
-              />
-            </Grid>
-            <Grid item md={1}>
-              <Button
-                variant="contained"
-                component="label"
-                fullWidth
-                type="file"
-                id="files"
-                style={{ fontSize: 14, textTransform: 'none' }}
-              >
-                Thêm
-                <input type="file" hidden />
-              </Button>
-            </Grid>
+            <Description count={totalDescription} setCount={setTotalDescription} />
             <Grid item xs={4}>
               <TextField
                 fullWidth

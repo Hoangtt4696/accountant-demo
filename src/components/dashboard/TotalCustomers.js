@@ -7,7 +7,7 @@ import {
   CardContent,
   Typography
 } from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
+// import { green } from '@material-ui/core/colors';
 import PeopleIcon from '@material-ui/icons/PeopleOutlined';
 
 const TotalCustomers = (props) => (
@@ -16,7 +16,8 @@ const TotalCustomers = (props) => (
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Avatar
           sx={{
-            backgroundColor: green[600],
+            backgroundColor: '#bdbdbd',
+            // backgroundColor: green[600],
             height: 56,
             width: 56
           }}

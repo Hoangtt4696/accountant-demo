@@ -5,7 +5,7 @@ import {
   Typography,
   Box,
 } from '@material-ui/core';
-import { indigo } from '@material-ui/core/colors';
+// import { indigo } from '@material-ui/core/colors';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const TotalProfit = (props) => (
@@ -14,7 +14,8 @@ const TotalProfit = (props) => (
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Avatar
           sx={{
-            backgroundColor: indigo[600],
+            backgroundColor: '#bdbdbd',
+            // backgroundColor: indigo[600],
             height: 56,
             width: 56
           }}

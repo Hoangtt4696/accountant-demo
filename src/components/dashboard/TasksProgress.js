@@ -6,7 +6,7 @@ import {
   // LinearProgress,
   Typography
 } from '@material-ui/core';
-import { orange } from '@material-ui/core/colors';
+// import { orange } from '@material-ui/core/colors';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
 const TasksProgress = (props) => (
@@ -15,7 +15,8 @@ const TasksProgress = (props) => (
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Avatar
           sx={{
-            backgroundColor: orange[600],
+            // backgroundColor: orange[600],
+            backgroundColor: '#bdbdbd',
             height: 56,
             width: 56
           }}

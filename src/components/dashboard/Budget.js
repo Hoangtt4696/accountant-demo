@@ -2,7 +2,7 @@
 import React from 'react';
 import { Avatar, Box, Card, CardContent, Typography } from '@material-ui/core';
 import MoneyIcon from '@material-ui/icons/Money';
-import { red } from '@material-ui/core/colors';
+// import { red } from '@material-ui/core/colors';
 
 const Budget = (props) => (
   <Card sx={{ height: '100%', borderRadius: 2 }} {...props}>
@@ -10,7 +10,8 @@ const Budget = (props) => (
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Avatar
           sx={{
-            backgroundColor: red[600],
+            // backgroundColor: red[600],
+            backgroundColor: '#bdbdbd',
             height: 56,
             width: 56
           }}
