@@ -12,6 +12,7 @@ import {
   Switch,
   Breadcrumbs,
   Typography,
+  Dialog,
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
@@ -54,6 +55,7 @@ const AccountProfileDetails =  (props) => {
     }
   });
 
+  const [isOpen, setIsOpen] = useState(false);
   const [displayList, setDisplayList] = useState(list);
   const handleFilterDisplayList = e => {
     const { name } = e.target;
@@ -208,9 +210,9 @@ const AccountProfileDetails =  (props) => {
                   textTransform: 'none',
                   border: 'none'
                 }}
+                onClick={() => { setIsOpen(true) }}
               >
                 Xem
-                <input type="file" hidden />
               </Button>
             </Grid>
             <Grid item xs={1}>
@@ -246,9 +248,9 @@ const AccountProfileDetails =  (props) => {
                   textTransform: 'none',
                   border: 'none'
                 }}
+                onClick={() => { setIsOpen(true) }}
               >
                 Xem
-                <input type="file" hidden />
               </Button>
             </Grid>
             <Grid item xs={1}>
@@ -378,6 +380,11 @@ const AccountProfileDetails =  (props) => {
           </div>
         </Box>
       </Card>
+      <Dialog onClose={() => { setIsOpen(false) }} aria-labelledby="simple-dialog-title" open={isOpen} fullWidth>
+        <div style={{ width: '80%', margin: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img style={{ width: '100%' }} src="/static/images/login_placeholder.png" />
+        </div>
+      </Dialog>
     </form>
   );
 }
