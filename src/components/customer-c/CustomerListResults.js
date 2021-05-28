@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Link } from 'react-router-dom';
 import {
-  Avatar,
   Box,
   Card,
   Checkbox,
@@ -15,8 +14,13 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-  Typography
+  Dialog,
+  DialogTitle,
+  Grid,
+  Button,
+  Divider,
 } from '@material-ui/core';
+import TextField from '../TextField';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons/faFileAlt';
@@ -33,6 +37,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSelectAll = (event) => {
     let newSelectedCustomerIds;
@@ -155,7 +160,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     {customer.description}
                   </TableCell>
                   <TableCell style={getStyle(100)}>{customer.count}</TableCell>
-                  <TableCell style={{ ...getStyle(100), color: 'blue' }}>Nhập</TableCell>
+                  <TableCell style={{ ...getStyle(100), color: 'blue', cursor: 'pointer' }}><span onClick={() => { setIsOpen(true) }}>Nhập</span></TableCell>
                   <TableCell style={getStyle(100)}>
                     {customer.releaseDate}
                   </TableCell>
@@ -202,6 +207,57 @@ const CustomerListResults = ({ customers, ...rest }) => {
         rowsPerPage={limit}
         rowsPerPageOptions={[5, 10, 25]}
       />
+      <Dialog
+        onClose={() => {
+          setIsOpen(false);
+        }}
+        aria-labelledby="simple-dialog-title"
+        open={isOpen}
+        fullWidth
+      >
+        <DialogTitle id="simple-dialog-title" style={{ fontWeight: 'bold', fontSize: 16 }}>Nhập giá tiền</DialogTitle>
+        <Divider />
+        <Grid
+          container
+          spacing={3}
+          style={{ width: '90%', margin: 'auto', marginBottom: '30px' }}
+        >
+          <Grid item xs={12} style={{ textAlign: 'center' }}>
+            <TextField defaultValue="" type="number" size="small" style={{ width: '80%' }} />
+          </Grid>
+          <Grid item xs={12} style={{ textAlign: 'right' }}>
+            <Button
+              size="small"
+              style={{
+                textTransform: 'none',
+                fontSize: 14,
+                backgroundColor: 'silver'
+              }}
+              color="primary"
+              variant="contained"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              Huỷ
+            </Button>
+            &nbsp;
+            <Button
+              size="small"
+              style={{
+                textTransform: 'none',
+                fontSize: 14
+              }}
+              variant="contained"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              Nhập
+            </Button>
+          </Grid>
+        </Grid>
+      </Dialog>
     </Card>
   );
 };

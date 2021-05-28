@@ -166,13 +166,33 @@ const AccountProfileDetails =  (props) => {
                 value="MFC"
               />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={1}>
               <TextField
                 fullWidth
                 name="email"
                 variant="outlined"
                 size="small"
                 value="2"
+                disabled
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                fullWidth
+                name="email"
+                variant="outlined"
+                size="small"
+                value="200.000"
+                disabled
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                fullWidth
+                name="email"
+                variant="outlined"
+                size="small"
+                value="400.000"
                 disabled
               />
             </Grid>
@@ -186,7 +206,6 @@ const AccountProfileDetails =  (props) => {
                 style={{ fontSize: 14, textTransform: 'none' }}
               >
                 Thêm
-                <input type="file" hidden />
               </Button>
             </Grid>
             <Grid item xs={4}>
