@@ -12,7 +12,7 @@ import LastestOrders from 'src/components/dashboard//LatestOrders';
 const Dashboard = () => (
   <>
     <Helmet>
-      <title>Dashboard | Material Kit</title>
+      <title>Demo</title>
     </Helmet>
     <Box
       sx={{

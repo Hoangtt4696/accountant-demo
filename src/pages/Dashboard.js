@@ -14,7 +14,7 @@ import Sales from 'src/components/dashboard//Sales';
 const Dashboard = () => (
   <>
     <Helmet>
-      <title>Dashboard | Material Kit</title>
+      <title>Demo</title>
     </Helmet>
     <Box
       sx={{
