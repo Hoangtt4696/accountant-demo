@@ -4,7 +4,7 @@ import { Box, Button, Card, CardContent } from '@material-ui/core';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/styles';
 import TextField from '../TextField';
 import DateTimePicker from '../DateTimePicker';
 import Select from '../Select';

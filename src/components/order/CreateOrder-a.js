@@ -12,7 +12,7 @@ import {
   Checkbox,
   Switch,
 } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/styles';
 import TextField from '../../components/TextField';
 import Select from '../../components/Select';
 import ExpandItem from '../../components/ExpandItem';
