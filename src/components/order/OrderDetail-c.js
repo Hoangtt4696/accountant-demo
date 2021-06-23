@@ -16,7 +16,7 @@ import {
   Radio
 } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/styles';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

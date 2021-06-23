@@ -32,13 +32,13 @@ const DateTimePicker = (props) => {
         timeIcon={
           <FontAwesomeIcon
             icon={faClock}
-            style={{ fontSize: 20, color: 'white' }}
+            style={{ fontSize: 20, color: 'main' }}
           />
         }
         dateRangeIcon={
           <FontAwesomeIcon
             icon={faCalendarAlt}
-            style={{ fontSize: 20, color: 'white' }}
+            style={{ fontSize: 20, color: 'main' }}
           />
         }
       />
